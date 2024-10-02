@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\api\V1;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Models\exchangeRates;
-use App\Http\Requests\StoreexchangeRatesRequest;
-use App\Http\Requests\UpdateexchangeRatesRequest;
+use App\Models\blockchainEvent;
+use App\Http\Requests\StoreblockchainEventRequest;
+use App\Http\Requests\UpdateblockchainEventRequest;
+use App\Http\Controllers\Controller;
 
-class ExchangeRatesController extends Controller
+class BlockchainEventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return blockchainEvent::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class ExchangeRatesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreexchangeRatesRequest $request)
+    public function store(StoreblockchainEventRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class ExchangeRatesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(exchangeRates $exchangeRates)
+    public function show(blockchainEvents $blockchainEvents)
     {
         //
     }
@@ -43,7 +44,7 @@ class ExchangeRatesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(exchangeRates $exchangeRates)
+    public function edit(blockchainEvents $blockchainEvents)
     {
         //
     }
@@ -51,7 +52,7 @@ class ExchangeRatesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateexchangeRatesRequest $request, exchangeRates $exchangeRates)
+    public function update(UpdateblockchainEventsRequest $request, blockchainEvents $blockchainEvents)
     {
         //
     }
@@ -59,7 +60,7 @@ class ExchangeRatesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(exchangeRates $exchangeRates)
+    public function destroy(blockchainEvents $blockchainEvents)
     {
         //
     }

@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\api\V1;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Models\cryptocurrencies;
-use App\Http\Requests\StorecryptocurrenciesRequest;
-use App\Http\Requests\UpdatecryptocurrenciesRequest;
+use App\Models\ExchangeRate;
+use App\Http\Requests\StoreexchangeRateRequest;
+use App\Http\Requests\UpdateexchangeRateRequest;
+use App\Http\Controllers\Controller;
 
-class CryptocurrenciesController extends Controller
+class ExchangeRateController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return ExchangeRate::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecryptocurrenciesRequest $request)
+    public function store(StoreexchangeRateRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cryptocurrencies $cryptocurrencies)
+    public function show(ExchangeRate $exchangeRates)
     {
         //
     }
@@ -43,7 +44,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(cryptocurrencies $cryptocurrencies)
+    public function edit(ExchangeRate $exchangeRates)
     {
         //
     }
@@ -51,7 +52,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecryptocurrenciesRequest $request, cryptocurrencies $cryptocurrencies)
+    public function update(UpdateexchangeRatesRequest $request, ExchangeRate $exchangeRates)
     {
         //
     }
@@ -59,7 +60,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cryptocurrencies $cryptocurrencies)
+    public function destroy(ExchangeRate $exchangeRates)
     {
         //
     }

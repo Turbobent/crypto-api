@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('cryptocurrencies', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Bitcoin, Ethereum, etc.
-            $table->string('symbol'); // BTC, ETH, etc.
+            $table->string('name')->unique(); // Bitcoin, Ethereum, etc.
+            $table->string('symbol')->unique(); // BTC, ETH, etc.
             $table->decimal('price_usd', 18, 8);
             $table->decimal('market_cap', 18, 8)->nullable();
             $table->timestamps();

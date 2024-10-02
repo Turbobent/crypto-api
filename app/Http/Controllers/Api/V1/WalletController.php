@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\api\V1;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Models\transactions;
-use App\Http\Requests\StoretransactionsRequest;
-use App\Http\Requests\UpdatetransactionsRequest;
+use App\Models\Wallet;
+use App\Http\Requests\StorewalletRequest;
+use App\Http\Requests\UpdatewalletRequest;
+use App\Http\Controllers\Controller;
 
-class TransactionsController extends Controller
+class WalletController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Wallet::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class TransactionsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoretransactionsRequest $request)
+    public function store(StorewalletRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class TransactionsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(transactions $transactions)
+    public function show(Wallet $wallets)
     {
         //
     }
@@ -43,7 +44,7 @@ class TransactionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(transactions $transactions)
+    public function edit(Wallet $wallets)
     {
         //
     }
@@ -51,7 +52,7 @@ class TransactionsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatetransactionsRequest $request, transactions $transactions)
+    public function update(UpdatewalletsRequest $request, Wallet $wallets)
     {
         //
     }
@@ -59,7 +60,7 @@ class TransactionsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(transactions $transactions)
+    public function destroy(Wallet $wallets)
     {
         //
     }

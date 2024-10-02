@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\api\V1;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Models\paymentRequests;
-use App\Http\Requests\StorepaymentRequestsRequest;
-use App\Http\Requests\UpdatepaymentRequestsRequest;
+use App\Models\Transaction;
+use App\Http\Requests\StoretransactionRequest;
+use App\Http\Requests\UpdatetransactionRequest;
+use App\Http\Controllers\Controller;
 
-class PaymentRequestsController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Transaction::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class PaymentRequestsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorepaymentRequestsRequest $request)
+    public function store(StoretransactionRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class PaymentRequestsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(paymentRequests $paymentRequests)
+    public function show(Transaction $transactions)
     {
         //
     }
@@ -43,7 +44,7 @@ class PaymentRequestsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(paymentRequests $paymentRequests)
+    public function edit(Transaction $transactions)
     {
         //
     }
@@ -51,7 +52,7 @@ class PaymentRequestsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatepaymentRequestsRequest $request, paymentRequests $paymentRequests)
+    public function update(UpdatetransactionsRequest $request, Transaction $transactions)
     {
         //
     }
@@ -59,7 +60,7 @@ class PaymentRequestsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(paymentRequests $paymentRequests)
+    public function destroy(Transaction $transactions)
     {
         //
     }
