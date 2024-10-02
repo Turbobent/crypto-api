@@ -2,22 +2,24 @@
 
 namespace Database\Factories;
 
+use App\Models\BlockchainEvent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\blockchainEvents>
- */
-class BlockchainEventsFactory extends Factory
+class BlockchainEventFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = BlockchainEvent::class;
+
     public function definition(): array
     {
         return [
-            //
+            'transaction_hash' => $this->faker->unique()->sha256,
+            'block_hash' => $this->faker->unique()->sha256,
+            'block_number' => $this->faker->numberBetween(1000, 999999),
+            'timestamp' => now(),
+            'event_type' => $this->faker->randomElement(['new block', 'transaction confirmation']),
+            'event_data' => json_encode(['info' => $this->faker->sentence()]),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

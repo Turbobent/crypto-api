@@ -2,22 +2,30 @@
 
 namespace Database\Factories;
 
+use App\Models\Transaction;
+use App\Models\Wallet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\transactions>
- */
-class TransactionsFactory extends Factory
+class TransactionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Transaction::class;
+
     public function definition(): array
     {
+        $transaction_type = $this->faker->randomElement(['deposit', 'withdrawal']);
+        $currency =  $this->faker->randomElement(['BTC', 'ETH', 'LTC', 'XRP']);
+        $status = $this->faker->randomElement(['pending', 'confirmed', 'failed']);
+
         return [
-            //
+            'wallet_id' => Wallet::factory(),
+            'transaction_type' => $transaction_type,
+            'amount' => $this->faker->randomFloat(8, 0.01, 5), // Random amount
+            'currency' => $currency,
+            'transaction_hash' => $this->faker->unique()->sha256, // Using SHA256 for transaction hash
+            'status' => $status,
+            'confirmed_at' => $this->faker->optional()->dateTime(), // Sometimes confirmed
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
