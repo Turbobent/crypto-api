@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Cryptocurrency;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,9 +15,14 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
         \App\Models\Wallet::factory(10)->create();
         \App\Models\Transaction::factory(20)->create();
-        \App\Models\Cryptocurrency::factory(5)->create();
+        
+        for ($i = 0; $i < 10; $i++) {
+            Cryptocurrency::factory()->createUniqueCryptocurrency();
+        }
+
         \App\Models\ExchangeRate::factory(10)->create();
         \App\Models\PaymentRequest::factory(10)->create();
         \App\Models\BlockchainEvent::factory(10)->create();
     }
 }
+

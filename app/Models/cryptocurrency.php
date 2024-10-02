@@ -15,4 +15,9 @@ class Cryptocurrency extends Model
         'price_usd',
         'market_cap',
     ];
+
+    public function transactions(){
+    return $this->hasMany(Transaction::class);
+    }
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api\V1;
+use Illuminate\Http\Request;
 
 use App\Models\Wallet;
 use App\Http\Requests\StorewalletRequest;

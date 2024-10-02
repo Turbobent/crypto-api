@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Api\V1;
-
+use Illuminate\Http\Request;
 use App\Models\Cryptocurrency;
 use App\Http\Requests\StorecryptocurrencyRequest;
 use App\Http\Requests\UpdatecryptocurrencyRequest;
 use App\Http\Controllers\Controller;
+
 
 class CryptocurrencyController extends Controller
 {
