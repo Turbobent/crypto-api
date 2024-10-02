@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api\V1;
 
-use App\Models\transactions;
-use App\Http\Requests\StoretransactionsRequest;
-use App\Http\Requests\UpdatetransactionsRequest;
+use App\Models\exchangeRates;
+use App\Http\Requests\StoreexchangeRatesRequest;
+use App\Http\Requests\UpdateexchangeRatesRequest;
 
-class TransactionsController extends Controller
+class ExchangeRatesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class TransactionsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoretransactionsRequest $request)
+    public function store(StoreexchangeRatesRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class TransactionsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(transactions $transactions)
+    public function show(exchangeRates $exchangeRates)
     {
         //
     }
@@ -43,7 +43,7 @@ class TransactionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(transactions $transactions)
+    public function edit(exchangeRates $exchangeRates)
     {
         //
     }
@@ -51,7 +51,7 @@ class TransactionsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatetransactionsRequest $request, transactions $transactions)
+    public function update(UpdateexchangeRatesRequest $request, exchangeRates $exchangeRates)
     {
         //
     }
@@ -59,7 +59,7 @@ class TransactionsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(transactions $transactions)
+    public function destroy(exchangeRates $exchangeRates)
     {
         //
     }

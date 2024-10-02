@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api\V1;
 
-use App\Models\paymentRequests;
-use App\Http\Requests\StorepaymentRequestsRequest;
-use App\Http\Requests\UpdatepaymentRequestsRequest;
+use App\Models\cryptocurrencies;
+use App\Http\Requests\StorecryptocurrenciesRequest;
+use App\Http\Requests\UpdatecryptocurrenciesRequest;
 
-class PaymentRequestsController extends Controller
+class CryptocurrenciesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class PaymentRequestsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorepaymentRequestsRequest $request)
+    public function store(StorecryptocurrenciesRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class PaymentRequestsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(paymentRequests $paymentRequests)
+    public function show(cryptocurrencies $cryptocurrencies)
     {
         //
     }
@@ -43,7 +43,7 @@ class PaymentRequestsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(paymentRequests $paymentRequests)
+    public function edit(cryptocurrencies $cryptocurrencies)
     {
         //
     }
@@ -51,7 +51,7 @@ class PaymentRequestsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatepaymentRequestsRequest $request, paymentRequests $paymentRequests)
+    public function update(UpdatecryptocurrenciesRequest $request, cryptocurrencies $cryptocurrencies)
     {
         //
     }
@@ -59,7 +59,7 @@ class PaymentRequestsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(paymentRequests $paymentRequests)
+    public function destroy(cryptocurrencies $cryptocurrencies)
     {
         //
     }

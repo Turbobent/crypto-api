@@ -15,8 +15,8 @@ class WalletFactory extends Factory
         $currency = $this->faker->randomElement(['BTC', 'ETH', 'LTC', 'XRP']);
 
         return [
-            'user_id' => User::factory(),
-            'address' => $this->faker->unique()->sha256, // Using SHA256 for a wallet-like address
+            'user_id' => User::factory(), // Creates a user for the wallet
+            'address' => $this->faker->unique()->sha256, // Generates a unique SHA256 address
             'currency' => $currency,
             'balance' => $this->faker->randomFloat(8, 0, 10), // Random balance between 0 and 10
             'created_at' => now(),

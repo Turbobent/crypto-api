@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,12 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-            \App\Models\User::factory(10)->create();
-            \App\Models\Wallet::factory(10)->create();
-            \App\Models\Transaction::factory(20)->create();
-            \App\Models\Cryptocurrency::factory(5)->create();
-            \App\Models\ExchangeRate::factory(10)->create();
-            \App\Models\PaymentRequest::factory(10)->create();
-            \App\Models\BlockchainEvent::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        \App\Models\Wallet::factory(10)->create();
+        \App\Models\Transaction::factory(20)->create();
+        \App\Models\Cryptocurrency::factory(5)->create();
+        \App\Models\ExchangeRate::factory(10)->create();
+        \App\Models\PaymentRequest::factory(10)->create();
+        \App\Models\BlockchainEvent::factory(10)->create();
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api\V1;
 
-use App\Models\cryptocurrencies;
-use App\Http\Requests\StorecryptocurrenciesRequest;
-use App\Http\Requests\UpdatecryptocurrenciesRequest;
+use App\Models\wallets;
+use App\Http\Requests\StorewalletsRequest;
+use App\Http\Requests\UpdatewalletsRequest;
 
-class CryptocurrenciesController extends Controller
+class WalletsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecryptocurrenciesRequest $request)
+    public function store(StorewalletsRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cryptocurrencies $cryptocurrencies)
+    public function show(wallets $wallets)
     {
         //
     }
@@ -43,7 +43,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(cryptocurrencies $cryptocurrencies)
+    public function edit(wallets $wallets)
     {
         //
     }
@@ -51,7 +51,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecryptocurrenciesRequest $request, cryptocurrencies $cryptocurrencies)
+    public function update(UpdatewalletsRequest $request, wallets $wallets)
     {
         //
     }
@@ -59,7 +59,7 @@ class CryptocurrenciesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cryptocurrencies $cryptocurrencies)
+    public function destroy(wallets $wallets)
     {
         //
     }

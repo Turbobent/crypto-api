@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api\V1;
 
-use App\Models\exchangeRates;
-use App\Http\Requests\StoreexchangeRatesRequest;
-use App\Http\Requests\UpdateexchangeRatesRequest;
+use App\Models\blockchainEvents;
+use App\Http\Requests\StoreblockchainEventsRequest;
+use App\Http\Requests\UpdateblockchainEventsRequest;
 
-class ExchangeRatesController extends Controller
+class BlockchainEventsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class ExchangeRatesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreexchangeRatesRequest $request)
+    public function store(StoreblockchainEventsRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ExchangeRatesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(exchangeRates $exchangeRates)
+    public function show(blockchainEvents $blockchainEvents)
     {
         //
     }
@@ -43,7 +43,7 @@ class ExchangeRatesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(exchangeRates $exchangeRates)
+    public function edit(blockchainEvents $blockchainEvents)
     {
         //
     }
@@ -51,7 +51,7 @@ class ExchangeRatesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateexchangeRatesRequest $request, exchangeRates $exchangeRates)
+    public function update(UpdateblockchainEventsRequest $request, blockchainEvents $blockchainEvents)
     {
         //
     }
@@ -59,7 +59,7 @@ class ExchangeRatesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(exchangeRates $exchangeRates)
+    public function destroy(blockchainEvents $blockchainEvents)
     {
         //
     }

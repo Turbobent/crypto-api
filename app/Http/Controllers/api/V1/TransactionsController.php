@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api\V1;
 
-use App\Models\blockchainEvents;
-use App\Http\Requests\StoreblockchainEventsRequest;
-use App\Http\Requests\UpdateblockchainEventsRequest;
+use App\Models\transactions;
+use App\Http\Requests\StoretransactionsRequest;
+use App\Http\Requests\UpdatetransactionsRequest;
 
-class BlockchainEventsController extends Controller
+class TransactionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class BlockchainEventsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreblockchainEventsRequest $request)
+    public function store(StoretransactionsRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class BlockchainEventsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(blockchainEvents $blockchainEvents)
+    public function show(transactions $transactions)
     {
         //
     }
@@ -43,7 +43,7 @@ class BlockchainEventsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(blockchainEvents $blockchainEvents)
+    public function edit(transactions $transactions)
     {
         //
     }
@@ -51,7 +51,7 @@ class BlockchainEventsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateblockchainEventsRequest $request, blockchainEvents $blockchainEvents)
+    public function update(UpdatetransactionsRequest $request, transactions $transactions)
     {
         //
     }
@@ -59,7 +59,7 @@ class BlockchainEventsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(blockchainEvents $blockchainEvents)
+    public function destroy(transactions $transactions)
     {
         //
     }
