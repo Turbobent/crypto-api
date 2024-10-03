@@ -7,6 +7,8 @@ use App\Models\Wallet;
 use App\Http\Requests\StorewalletRequest;
 use App\Http\Requests\UpdatewalletRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\WalletResource;
+use App\Http\Resources\V1\WalletCollection;
 
 class WalletController extends Controller
 {
@@ -15,7 +17,7 @@ class WalletController extends Controller
      */
     public function index()
     {
-        return Wallet::all();
+        return new WalletCollection(Wallet::paginate());
     }
 
     /**
@@ -37,15 +39,15 @@ class WalletController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Wallet $wallets)
+    public function show(Wallet $wallet)
     {
-        //
+        return new WalletResource($wallet);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Wallet $wallets)
+    public function edit(Wallet $wallet)
     {
         //
     }
@@ -53,7 +55,7 @@ class WalletController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatewalletsRequest $request, Wallet $wallets)
+    public function update(UpdatewalletsRequest $request, Wallet $wallet)
     {
         //
     }

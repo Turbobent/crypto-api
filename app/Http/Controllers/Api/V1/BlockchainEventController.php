@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api\V1;
 use Illuminate\Http\Request;
 
-use App\Models\blockchainEvent;
+use App\Models\BlockchainEvent;
 use App\Http\Requests\StoreblockchainEventRequest;
 use App\Http\Requests\UpdateblockchainEventRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\BlockchainEventResource;
+use App\Http\Resources\V1\BlockchainEventCollection;
 
 class BlockchainEventController extends Controller
 {
@@ -15,7 +17,7 @@ class BlockchainEventController extends Controller
      */
     public function index()
     {
-        return blockchainEvent::all();
+        return new BlockchainEventCollection(blockchainEvent::paginate());
     }
 
     /**
@@ -37,15 +39,15 @@ class BlockchainEventController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(blockchainEvents $blockchainEvents)
+    public function show(blockchainEvent $blockchainEvent)
     {
-        //
+        return new BlockchainEventResource($blockchainEvent);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(blockchainEvents $blockchainEvents)
+    public function edit(blockchainEvent $blockchainEvent)
     {
         //
     }
@@ -53,7 +55,7 @@ class BlockchainEventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateblockchainEventsRequest $request, blockchainEvents $blockchainEvents)
+    public function update(UpdateblockchainEventsRequest $request, blockchainEvent $blockchainEvent)
     {
         //
     }
@@ -61,7 +63,7 @@ class BlockchainEventController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(blockchainEvents $blockchainEvents)
+    public function destroy(blockchainEvent $blockchainEvent)
     {
         //
     }

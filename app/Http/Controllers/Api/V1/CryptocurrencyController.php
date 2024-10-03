@@ -6,7 +6,8 @@ use App\Models\Cryptocurrency;
 use App\Http\Requests\StorecryptocurrencyRequest;
 use App\Http\Requests\UpdatecryptocurrencyRequest;
 use App\Http\Controllers\Controller;
-
+use App\Http\Resources\V1\CryptocurrencyResource;
+use App\Http\Resources\V1\CryptocurrencyCollection;
 
 class CryptocurrencyController extends Controller
 {
@@ -15,7 +16,7 @@ class CryptocurrencyController extends Controller
      */
     public function index()
     {
-        return Cryptocurrency::all();
+        return new Cryptocurrencycollection(Cryptocurrency::paginate());
     }
 
     /**
@@ -37,15 +38,15 @@ class CryptocurrencyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cryptocurrency $cryptocurrencies)
+    public function show(Cryptocurrency $cryptocurrency)
     {
-        //
+        return new CryptocurrencyResource($cryptocurrency);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cryptocurrency $cryptocurrencies)
+    public function edit(Cryptocurrency $cryptocurrency)
     {
         //
     }
@@ -53,7 +54,7 @@ class CryptocurrencyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecryptocurrenciesRequest $request, Cryptocurrency $cryptocurrencies)
+    public function update(UpdatecryptocurrenciesRequest $request, Cryptocurrency $cryptocurrency)
     {
         //
     }
@@ -61,7 +62,7 @@ class CryptocurrencyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cryptocurrency $cryptocurrencies)
+    public function destroy(Cryptocurrency $cryptocurrency)
     {
         //
     }

@@ -7,6 +7,8 @@ use App\Models\PaymentRequest;
 use App\Http\Requests\StorepaymentRequestRequest;
 use App\Http\Requests\UpdatepaymentRequestRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\PaymentRequestResource;
+use App\Http\Resources\V1\PaymentRequestCollection;
 
 class PaymentRequestController extends Controller
 {
@@ -15,7 +17,7 @@ class PaymentRequestController extends Controller
      */
     public function index()
     {
-        return PaymentRequest::all();
+        return new PaymentRequestCollection(PaymentRequest::paginate());
     }
 
     /**
@@ -37,15 +39,15 @@ class PaymentRequestController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PaymentRequest $paymentRequests)
+    public function show(PaymentRequest $paymentRequest)
     {
-        //
+        return new PaymentRequestResource($paymentRequest);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PaymentRequest $paymentRequests)
+    public function edit(PaymentRequest $paymentRequest)
     {
         //
     }
@@ -53,7 +55,7 @@ class PaymentRequestController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatepaymentRequestsRequest $request, PaymentRequest $paymentRequests)
+    public function update(UpdatepaymentRequestsRequest $request, PaymentRequest $paymentRequest)
     {
         //
     }
@@ -61,7 +63,7 @@ class PaymentRequestController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PaymentRequest $paymentRequests)
+    public function destroy(PaymentRequest $paymentRequest)
     {
         //
     }

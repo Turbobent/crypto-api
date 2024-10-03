@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('currency_to'); // e.g., USD
             $table->decimal('rate', 18, 8); // Exchange rate between currencies
             $table->timestamp('timestamp');
-            $table->timestamps();
         });
     }
 
