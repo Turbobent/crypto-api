@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); // Add this line
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Foreign key constraint
+
             $table->unsignedBigInteger('wallet_id');
             $table->foreign('wallet_id')->references('id')->on('wallets')->onDelete('cascade');
 

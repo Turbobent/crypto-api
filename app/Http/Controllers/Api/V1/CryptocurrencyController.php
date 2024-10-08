@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 use Illuminate\Http\Request;
 use App\Models\Cryptocurrency;
-use App\Http\Requests\StorecryptocurrencyRequest;
+use App\Http\Requests\StoreCryptocurrencyRequest;
 use App\Http\Requests\UpdatecryptocurrencyRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\CryptocurrencyResource;
@@ -32,7 +32,12 @@ class CryptocurrencyController extends Controller
      */
     public function store(StorecryptocurrenciesRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        // Proceed with storing the cryptocurrency
+        $cryptocurrency = Cryptocurrency::create($validated);
+
+        return response()->json($cryptocurrency, 201);
     }
 
     /**

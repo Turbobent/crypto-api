@@ -19,8 +19,11 @@ class Transaction extends Model
         'confirmed_at',
     ];
 
-    public function wallet()
-    {
-        return $this->belongsTo(Wallet::class);
-    }
+
+
+     // Relationship to Wallet
+     public function wallet()
+     {
+         return $this->belongsTo(Wallet::class);
+     }
 }
