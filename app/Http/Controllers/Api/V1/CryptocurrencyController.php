@@ -30,7 +30,7 @@ class CryptocurrencyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecryptocurrenciesRequest $request)
+    public function store(StoreCryptocurrencyRequest $request)
     {
         $validated = $request->validated();
 
