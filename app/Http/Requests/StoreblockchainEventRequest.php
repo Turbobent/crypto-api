@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreblockchainEventsRequest extends FormRequest
+class StoreBlockchainEventRequest extends FormRequest // Updated name to PascalCase
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,12 @@ class StoreblockchainEventsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'event_name' => 'required|string|max:255',
-            'blockchain' => 'required|string|max:100',
-            'transaction_id' => 'required|string|unique:blockchain_events,transaction_id|max:255',
-            'event_type' => 'required|string|max:100',
-            'data' => 'required|json', // Assuming event data is stored in JSON format
+            'transaction_hash' => 'required|string|unique:blockchain_events,transaction_hash|max:255', // Unique and max length validation
+            'block_hash' => 'required|string|max:255',
+            'block_number' => 'required|integer',
+            'event_type' => 'required|string|max:100', // Kept from original
             'timestamp' => 'required|date',
+            'event_data' => 'nullable|json', // Changed to match your migration, and made it nullable
         ];
     }
 
@@ -40,13 +40,13 @@ class StoreblockchainEventsRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'event_name.required' => 'The event name is required.',
-            'blockchain.required' => 'Please specify the blockchain.',
-            'transaction_id.required' => 'Transaction ID is required and must be unique.',
-            'transaction_id.unique' => 'This transaction ID has already been used.',
-            'event_type.required' => 'The type of event is required.',
-            'data.required' => 'Event data is required and should be in JSON format.',
+            'transaction_hash.required' => 'Transaction hash is required.',
+            'transaction_hash.unique' => 'This transaction hash has already been used.',
+            'block_hash.required' => 'Block hash is required.',
+            'block_number.required' => 'Block number is required and must be an integer.',
+            'event_type.required' => 'The event type is required.',
             'timestamp.required' => 'The timestamp is required and should be a valid date.',
+            'event_data.json' => 'Event data must be valid JSON format if provided.',
         ];
     }
 }

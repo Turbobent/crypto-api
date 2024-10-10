@@ -31,10 +31,24 @@ class BlockchainEventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreblockchainEventRequest $request)
+    public function store(StoreBlockchainEventRequest $request)
     {
-        //
+        // Check if the transaction hash already exists
+        $existingEvent = BlockchainEvent::where('transaction_hash', $request->transaction_hash)->first();
+
+        if ($existingEvent) {
+            return response()->json([
+                'message' => 'This transaction hash has already been used.'
+            ], 400);
+        }
+
+        // If it does not exist, create a new blockchain event
+        $blockchainEvent = BlockchainEvent::create($request->validated());
+
+        return response()->json($blockchainEvent, 201);
     }
+
+
 
     /**
      * Display the specified resource.
