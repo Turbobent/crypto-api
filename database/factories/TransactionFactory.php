@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Transaction;
 use App\Models\Wallet;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TransactionFactory extends Factory
@@ -17,7 +18,8 @@ class TransactionFactory extends Factory
         $status = $this->faker->randomElement(['pending', 'confirmed', 'failed']);
 
         return [
-            'wallet_id' => Wallet::factory(),
+            'user_id' => User::factory(), // Associate with a user
+            'wallet_id' => Wallet::factory(), // Associate with a wallet
             'transaction_type' => $transaction_type,
             'amount' => $this->faker->randomFloat(8, 0.01, 5), // Random amount
             'currency' => $currency,
@@ -29,3 +31,4 @@ class TransactionFactory extends Factory
         ];
     }
 }
+

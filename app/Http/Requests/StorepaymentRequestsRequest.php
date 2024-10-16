@@ -23,17 +23,23 @@ class StorepaymentRequestsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'customer_id' => 'required|exists:customers,id', // The ID of the customer making the request
+            'userId' => 'required|exists:user,id', // The ID of the customer making the request
             'recipient_account' => 'required|string|max:255', // The account details of the recipient
             'amount' => 'required|numeric|min:0.01', // The amount to be paid
             'currency' => 'required|string|max:3', // Currency code (e.g., USD, BTC)
-            'payment_method' => 'required|string|max:50', // Payment method (e.g., credit card, crypto wallet)
-            'transaction_id' => 'nullable|string|max:100', // Optional transaction ID, if already available
+            'paymentMethod' => 'required|string|max:50', // Payment method (e.g., credit card, crypto wallet)
+            'transactionId' => 'nullable|string|max:100', // Optional transaction ID, if already available
             'status' => 'required|string|in:pending,completed,failed,cancelled', // Payment status
             'paid_at' => 'nullable|date', // Timestamp when the payment was completed, if available
         ];
     }
-
+    protected function prepareForValidation(){
+        $this->merge([
+            'user_id'=> $this->userId,
+            'payment_method'=> $this->paymentMethod,
+            'transaction_id'=> $this->transactionId
+        ]);
+    }
     /**
      * Custom error messages for validation.
      *
