@@ -33,8 +33,24 @@ class PaymentRequestController extends Controller
      */
     public function store(StorepaymentRequestsRequest $request)
     {
-        return new StorepaymentRequestsRequest(PaymentRequest::create($request->all()));
+        // Create a new PaymentRequest using the validated data
+        $paymentRequest = PaymentRequest::create([
+            'user_id' => $request->userId, // Ensure user_id is passed
+            'recipient_account' => $request->recipientAccount,
+            'amount' => $request->amount,
+            'currency' => $request->currency,
+            'payment_method' => $request->paymentMethod,
+            'transaction_id' => $request->transactionId,
+            'status' => $request->status,
+            'paid_at' => $request->paidAt,
+            'recipient_address' => $request->recipientAddress,
+        ]);
+
+        // Return the created PaymentRequest or a success response
+        return response()->json($paymentRequest, 201); // 201 Created status
     }
+
+
 
     /**
      * Display the specified resource.

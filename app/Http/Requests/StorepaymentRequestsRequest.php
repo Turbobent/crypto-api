@@ -23,21 +23,26 @@ class StorepaymentRequestsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userId' => 'required|exists:user,id', // The ID of the customer making the request
-            'recipient_account' => 'required|string|max:255', // The account details of the recipient
+            'userId' => 'required|exists:users,id', // The ID of the user making the request
+            'recipientAccount' => 'required|string|max:255', // The account details of the recipient
             'amount' => 'required|numeric|min:0.01', // The amount to be paid
             'currency' => 'required|string|max:3', // Currency code (e.g., USD, BTC)
             'paymentMethod' => 'required|string|max:50', // Payment method (e.g., credit card, crypto wallet)
             'transactionId' => 'nullable|string|max:100', // Optional transaction ID, if already available
             'status' => 'required|string|in:pending,completed,failed,cancelled', // Payment status
-            'paid_at' => 'nullable|date', // Timestamp when the payment was completed, if available
+            'paidAt' => 'nullable|date', // Timestamp when the payment was completed, if available
+            'recipientAddress' => 'required|string|max:255', // The recipient's address
         ];
     }
+
     protected function prepareForValidation(){
         $this->merge([
             'user_id'=> $this->userId,
             'payment_method'=> $this->paymentMethod,
-            'transaction_id'=> $this->transactionId
+            'transaction_id'=> $this->transactionId,
+            'recipient_account'=> $this->recipientAccount,
+            'paid_at'=> $this->paidAt,
+            'recipient_address'=> $this->recipientAddress,
         ]);
     }
     /**
