@@ -46,15 +46,15 @@ class StorewalletsRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'user_id.required' => 'The user ID is required.',
-            'user_id.exists' => 'The user does not exist.',
+            'userId.required' => 'The user ID is required.',
+            'userId.exists' => 'The user does not exist.',
             'balance.required' => 'The wallet balance is required.',
             'balance.min' => 'The wallet balance must be 0 or greater.',
             'currency.required' => 'The currency is required.',
-            'wallet_address.required' => 'The wallet address is required.',
-            'wallet_address.unique' => 'This wallet address has already been used.',
-            'wallet_type.required' => 'The wallet type is required.',
-            'wallet_type.in' => 'The wallet type must be either "crypto" or "fiat".',
+            'walletAddress.required' => 'The wallet address is required.',
+            'walletAddress.unique' => 'This wallet address has already been used.',
+            'walletType.required' => 'The wallet type is required.',
+            'walletType.in' => 'The wallet type must be either "crypto" or "fiat".',
         ];
     }
 }

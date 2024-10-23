@@ -23,15 +23,24 @@ class StoreBlockchainEventRequest extends FormRequest // Updated name to PascalC
     public function rules(): array
     {
         return [
-            'transaction_hash' => 'required|string|unique:blockchain_events,transaction_hash|max:255', // Unique and max length validation
-            'block_hash' => 'required|string|max:255',
-            'block_number' => 'required|integer',
-            'event_type' => 'required|string|max:100', // Kept from original
+            'transactionHash' => 'required|string|unique:blockchain_events,transaction_hash|max:255', // Unique and max length validation
+            'blockHash' => 'required|string|max:255',
+            'blockNumber' => 'required|integer',
+            'eventType' => 'required|string|max:100', // Kept from original
             'timestamp' => 'required|date',
-            'event_data' => 'nullable|json', // Changed to match your migration, and made it nullable
+            'eventData' => 'nullable|json', // Changed to match your migration, and made it nullable
         ];
     }
 
+    protected function prepareForValidation(){
+        $this->merge([
+            'transaction_hash'=> $this->transactionHash,
+            'block_hash'=> $this->blockHash,
+            'block_number'=> $this->blockNumber,
+            'event_type'=> $this->eventType,
+            'event_data'=> $this->eventData,
+        ]);
+    }
     /**
      * Custom error messages for validation.
      *

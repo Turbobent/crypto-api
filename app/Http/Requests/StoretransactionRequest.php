@@ -23,16 +23,24 @@ class StoretransactionsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'customer_id' => 'required|exists:customers,id', // Ensure the customer exists
+            'userId' => 'required|exists:users,id', // Ensure the customer exists
             'amount' => 'required|numeric|min:0.01', // The transaction amount must be positive
             'currency' => 'required|string|max:3', // Currency code (e.g., USD, BTC)
-            'payment_method' => 'required|string|max:50', // Payment method used for the transaction
-            'transaction_id' => 'required|string|max:100|unique:transactions,transaction_id', // Ensure transaction ID is unique
+            'walletId' => 'required|string|max:50', // Payment method used for the transaction
+            'transactionHash' => 'required|string|max:100|unique:transactions,transaction_id', // Ensure transaction ID is unique
             'status' => 'required|string|in:pending,completed,failed,cancelled', // Transaction status
-            'transaction_date' => 'required|date', // Transaction date
+            'confirmedAt' => 'required|date', // Transaction date
         ];
     }
 
+    protected function prepareForValidation(){
+        $this->merge([
+            'user_id'=> $this->userId,
+            'wallet_id'=> $this->walletId,
+            'transaction_hash'=> $this->transactionHash,
+            'confirmed_at'=> $this->confirmedAt,
+        ]);
+    }
     /**
      * Custom error messages for validation.
      *

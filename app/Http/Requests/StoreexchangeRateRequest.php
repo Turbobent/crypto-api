@@ -23,11 +23,18 @@ class StoreexchangeRatesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'currency_from' => 'required|string|max:3', // ISO currency code (e.g., USD, EUR)
-            'currency_to' => 'required|string|max:3',   // ISO currency code (e.g., BTC, ETH)
+            'currencyFrom' => 'required|string|max:3', // ISO currency code (e.g., USD, EUR)
+            'currencyTo' => 'required|string|max:3',   // ISO currency code (e.g., BTC, ETH)
             'rate' => 'required|numeric|min:0',         // Exchange rate must be a positive number
             'timestamp' => 'required|date',             // Timestamp of the rate
         ];
+    }
+
+    protected function prepareForValidation(){
+        $this->merge([
+            'currency_from'=> $this->currencyFrom,
+            'currency_to'=> $this->currencyTo,
+        ]);
     }
 
     /**

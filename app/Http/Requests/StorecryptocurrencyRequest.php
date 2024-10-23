@@ -22,8 +22,15 @@ class StoreCryptocurrencyRequest extends FormRequest
         return [
             'name' => 'required|string|max:255|unique:cryptocurrencies,name',
             'symbol' => 'required|string|max:10|unique:cryptocurrencies,symbol',
-            'price_usd' => 'required|numeric|min:0',
-            'market_cap' => 'required|numeric|min:0',
+            'priceUsd' => 'required|numeric|min:0',
+            'marketCap' => 'required|numeric|min:0',
         ];
+    }
+
+    protected function prepareForValidation(){
+        $this->merge([
+            'price_usd'=> $this->priceUsd,
+            'market_cap'=> $this->marketCap,
+        ]);
     }
 }
