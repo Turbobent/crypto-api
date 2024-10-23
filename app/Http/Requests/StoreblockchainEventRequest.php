@@ -28,7 +28,7 @@ class StoreBlockchainEventRequest extends FormRequest // Updated name to PascalC
             'blockNumber' => 'required|integer',
             'eventType' => 'required|string|max:100', // Kept from original
             'timestamp' => 'required|date',
-            'eventData' => 'nullable|json', // Changed to match your migration, and made it nullable
+            'eventData' => 'nullable|json', // Changed to match migration, and made it nullable
         ];
     }
 
@@ -49,13 +49,13 @@ class StoreBlockchainEventRequest extends FormRequest // Updated name to PascalC
     public function messages(): array
     {
         return [
-            'transaction_hash.required' => 'Transaction hash is required.',
-            'transaction_hash.unique' => 'This transaction hash has already been used.',
-            'block_hash.required' => 'Block hash is required.',
-            'block_number.required' => 'Block number is required and must be an integer.',
-            'event_type.required' => 'The event type is required.',
+            'transactionHash.required' => 'Transaction hash is required.',
+            'transactionHash.unique' => 'This transaction hash has already been used.',
+            'blockHash.required' => 'Block hash is required.',
+            'blockNumber.required' => 'Block number is required and must be an integer.',
+            'eventType.required' => 'The event type is required.',
             'timestamp.required' => 'The timestamp is required and should be a valid date.',
-            'event_data.json' => 'Event data must be valid JSON format if provided.',
+            'eventData.json' => 'Event data must be valid JSON format if provided.',
         ];
     }
 }
