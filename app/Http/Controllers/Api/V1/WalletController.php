@@ -33,7 +33,12 @@ class WalletController extends Controller
      */
     public function store(StorewalletRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        // Proceed with storing the cryptocurrency
+        $wallet = Wallet::create($validated);
+
+        return response()->json($wallet, 201);
     }
 
     /**

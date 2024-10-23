@@ -53,11 +53,11 @@ class StorepaymentRequestsRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'customer_id.required' => 'A valid customer ID is required.',
-            'recipient_account.required' => 'Recipient account details are required.',
+            'customerId.required' => 'A valid customer ID is required.',
+            'recipientAccount.required' => 'Recipient account details are required.',
             'amount.required' => 'The payment amount is required.',
             'currency.required' => 'The currency is required.',
-            'payment_method.required' => 'The payment method is required.',
+            'paymentMethod.required' => 'The payment method is required.',
             'status.required' => 'The payment status is required.',
             'status.in' => 'The status must be one of the following: pending, completed, failed, or cancelled.',
         ];

@@ -23,14 +23,21 @@ class StorewalletsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'required|exists:users,id', // Ensure the user exists
+            'userId' => 'required|exists:users,id', // Ensure the user exists
             'balance' => 'required|numeric|min:0', // Wallet balance must be 0 or greater
             'currency' => 'required|string|max:3', // Currency code (e.g., USD, BTC)
-            'wallet_address' => 'required|string|max:100|unique:wallets,wallet_address', // Ensure the wallet address is unique
-            'wallet_type' => 'required|string|in:crypto,fiat', // Ensure the wallet type is either crypto or fiat
+            'walletAddress' => 'required|string|max:100|unique:wallets,wallet_address', // Ensure the wallet address is unique
+            'walletType' => 'required|string|in:crypto,fiat', // Ensure the wallet type is either crypto or fiat
         ];
     }
 
+    protected function prepareForValidation(){
+        $this->merge([
+            'user_id'=> $this->userId,
+            'wallet_address'=> $this->walletAddress,
+            'wallet_type'=> $this->walletType,
+        ]);
+    }
     /**
      * Custom error messages for validation.
      *
