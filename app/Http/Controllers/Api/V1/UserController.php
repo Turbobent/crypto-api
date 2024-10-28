@@ -30,21 +30,10 @@ class UserController extends Controller
         $validatedData['password'] = bcrypt($validatedData['password']);
         $user = User::create($validatedData);
 
-        // Optionally, create wallets and transactions
-        // For demonstration, we are adding one wallet and one transaction as an example
-        $wallet = $user->wallets()->create([
-            'balance' => 1000,  // Starting balance
-            'currency' => 'USD',
-        ]);
+        //create wallet
+        $wallet = $user->wallets()->create();
 
-        $user->transactions()->create([
-            'amount' => 500,
-            'type' => 'deposit',
-            'wallet_id' => $wallet->id,
-            'status' => 'completed',
-        ]);
-
-        return response()->json($user->load(['wallets', 'transactions']), 201);
+        return response()->json($user->load(['wallets']), 201);
     }
 
     /**
@@ -71,8 +60,7 @@ class UserController extends Controller
 
         return response()->json([
             'user' => $user,
-            'wallets' => $includeWallets ? $user->wallets : null,
-            'transactions' => $includeTransactions && $includeWallets ? $user->wallets->flatMap->transactions : null,
+            'transactions' => $includeTransactions ? $user->flatMap->transactions : null,
         ]);
     }
 }
